@@ -1,0 +1,84 @@
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <div class="row">
+        <div class="col-4 bg-success">
+          {{ projectName }}
+        </div>
+        <div class="col-4">
+          <p>{{ name }}</p>
+        </div>
+        <div class="col-4 bg-success">
+          <input type="text" value="{{ projectName }}" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4">
+          <textarea value="{{ companyAddress }}"></textarea>
+        </div>
+        <div class="col-4">
+          <textarea [rows]="addressRows" [value]="companyAddress"></textarea>
+        </div>
+        <div [class]="div4bgClassName">CourseName: {{ getCourseName() }}</div>
+      </div>
+      <hr>
+      <button (click)="changeProjectName()">Change Name </button>
+      <hr>
+      <div class="row">
+        <div class="col-4">
+          <input [type]="myInputType" />
+        </div>
+        <div class="col-4">
+          <input type="checkbox" [checked]="isActive" />
+        </div>
+        <div class="col-4">
+          <input type="text" [placeholder]="myPlaceHolder" />
+        </div>
+        <hr />
+        <hr />
+        <div class="row">
+          <div class="col-3">
+            <button (click)="showAlertWelcome()" class="btn btn-primary">SAP</button>
+          </div>
+          <div class="col-4">
+            <button (click)="showMsg('Java')">JAVA</button>
+            <button (click)="showMsg('.Net')">DOT NET</button>
+            <button (click)="showMsg('Python')">PYTHON</button>
+          </div>
+          <div class="col-4">
+            <select (change)="onCityChnage($event)">
+              <option>ANDHRA PRADESH</option>
+              <option>TELANGANA</option>
+              <option>TAMIL NADU</option>
+              <option>KERALA</option>
+            </select>
+          </div>
+          <div class="col-12">
+            <div class="row">
+              <div class="col-5">
+                <button (click)="showClickedText($event)">JAVA</button>
+                <button (click)="showClickedText($event)">DOT NET</button>
+                <button (click)="showClickedText($event)">PYTHON</button>
+                <button (click)="showClickedText($event)">ReactJs</button>
+                <button (click)="showClickedText($event)">Vue Js</button>
+                <button (click)="showClickedText($event)">SAP SAS</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-3">
+            <input type="text" (input)="onTextChange()" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-6"></div>
+  </div>
+</div>
+<div
+  (mouseenter)="onMouseEnter('green')"
+  (mouseleave)="onMouseLeft('red')"
+  [style.background-color]="bgColor"
+  style="width: 600; height: 300px"
+>
+  SAP
+</div>
