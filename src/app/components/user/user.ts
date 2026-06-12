@@ -58,4 +58,8 @@ bgColor = 'aqua';
   changeProjectName(){
     this.projectName = " SAAS"
   }
+
+  changeProjectNameV2(){
+    this.projectName = " SAAS"
+  }
 }
