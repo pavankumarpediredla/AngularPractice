@@ -1,9 +1,20 @@
 import { Routes } from '@angular/router';
-import { Dashboard } from './dashboard/dashboard';
+import { Home } from './components/home/home';
+import { Profile } from './components/profile/profile';
+import { Settings } from './components/settings/settings';
 
 export const routes: Routes = [
+    
     {
-        path: 'dashboard',
-        component: Dashboard
+        path: 'home',
+        component: Home
+    },
+    {
+        path: 'profile',
+        component: Profile
+    },
+    {
+        path: 'settings',
+        component: Settings
     }
 ];
