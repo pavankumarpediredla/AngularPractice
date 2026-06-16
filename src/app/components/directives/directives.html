@@ -173,6 +173,106 @@
             </select>
           </div>
         </div>
+        <hr />
+        @for (item of studentDetailList; track $index) {
+          <div class="row">
+            <div class="col-3">
+              <input type="text" [value]="item.name" />
+            </div>
+            <div class="col-2">
+              <input type="text" [value]="item.city" />
+            </div>
+            <div class="col-2">
+              <input type="text" [value]="item.contactNo" />
+            </div>
+          </div>
+        }
+        <hr />
+        <div class="row">
+          <div class="col-6">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>S no</th>
+                  <th>Name</th>
+                  <th>City</th>
+                  <th>Contact</th>
+                </tr>
+              </thead>
+              <tbody>
+                @for (item of studentDetailList; track $index;let isFirst= $first;
+                let isLast = $last;
+                let isEven = $even;
+                let isOdd = $odd) {
+                  <tr>
+                    <td>{{ $index +1 }}</td>
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.city }}</td>
+                    <td>{{ item.contactNo }}</td>
+                    <td>{{$first}} -- {{isLast}}</td>
+                    <td>{{$even}}</td>
+                    <td>
+                        @if (item.isActive) {
+                            <h6 class="text-primary">Player is Active</h6>
+                        } @else {
+                        <h6 class="text-danger">Player is InActive</h6>
+                        }
+                    </td>
+                  </tr>
+                } @empty {
+                    <tr>
+                        <td colspan="6">No Records Found</td>
+                    </tr>
+                }
+              </tbody>
+            </table>
+          </div>
+          <div class="col-6">
+            <div class="row">
+             @for (player of studentDetailList; track $index) {
+                <div class="col-4 mt-2">
+                    <div class="card">
+                        <div class="card-header">
+                                {{player.name}}
+                        </div>
+                        <div class="card-body">
+                            Player city : {{player.city}}
+                        </div>
+                        <div class="card-footer">
+                            {{player.contactNo}}
+                        </div>
+                    </div>
+                
+                </div>
+            }
+            </div>
+          </div>
+                    <div class="col-6">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>City</th>
+                  <th>Contact</th>
+                </tr>
+              </thead>
+              <tbody>
+                  <tr *ngFor="let item of studentDetailList; let srNo = index; 
+                  let isEven = even;
+                  let isOdd = odd;
+                  let isFirst = first;
+                  let isLast = last;">
+                    <td>{{srNo+1}} == {{isEven}}</td>
+                    <td><input type="text" [value]="item.name"></td>
+                    <td><input type="text" [value]="item.city"></td>
+                    <td><input type="text" [value]="item.contactNo"></td>
+                    <td>{{isFirst}} == {{isLast}}</td>
+                  </tr>
+                
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
     </div>
   }

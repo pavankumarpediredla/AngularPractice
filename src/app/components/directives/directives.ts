@@ -62,4 +62,19 @@ export class Directives {
   }
 
   studentList = ['Chetan','Rahul','namen','Ankit']
+
+  studentDetailListv1:any[] = [];
+  studentDetailList = [
+    {isActive:false,name:'sachin tendulkar', city: 'Mumbai',contactNo:'87642876472'},
+    {isActive:true,name:'Virat Kohli ', city: 'Mumbai',contactNo:'87642876472'},
+    {isActive:false,name:'Rohit Sharma', city: 'Bhopal',contactNo:'87642876472'},
+    {isActive:true,name:'Virendra Sehwag', city: 'Delhi',contactNo:'876428786'},
+    {isActive:false,name:'polard ', city: 'chennai',contactNo:'76398223'},
+    {isActive:true,name:'sachin tendulkar', city: 'Mumbai',contactNo:'87642876472'},
+    {isActive:false,name:'Virat Kohli ', city: 'Mumbai',contactNo:'87642876472'},
+    {isActive:true,name:'Rohit Sharma', city: 'Bhopal',contactNo:'87642876472'},
+    {isActive:true,name:'Virendra Sehwag', city: 'Delhi',contactNo:'876428786'},
+    {isActive:false,name:'polard ', city: 'chennai',contactNo:'76398223'}
+  ]
+
 }
