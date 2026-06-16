@@ -1,26 +1,179 @@
 <p>directives works!</p>
 
-
-<div class="container">
-    <div class="row">
-        <div class="col-3">
-          <div class="bg-danger p-4" *ngIf="isDivVisible">
-            DIV 1
+<div class="row">
+  <div class="col-12 text-center">
+    <div class="btn-group">
+      <button type="button" class="btn btn-primary" (click)="changeView('ngIf')">*ngIf,if</button>
+      <button type="button" class="btn btn-primary" (click)="changeView('ngFor')">
+        *ngFor for
+      </button>
+    </div>
+  </div>
+</div>
+<div class="row">
+  @if (userSelectionView == 'ngIf') {
+    <div class="col-12">
+      ng if
+      <div class="container">
+        <div class="row">
+          <div class="col-3">
+            <div class="bg-danger p-4" *ngIf="isDivVisible">DIV 1</div>
           </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-3">
+        <div class="row">
+          <div class="col-3">
             <button class="btn btn-success" (click)="hideShowDiv1(true)">Show</button>
             <button class="btn btn-danger" (click)="hideShowDiv1(false)">Hide</button>
+          </div>
         </div>
-    </div>
 
-    <div class="row">
-        <input type="checkbox" [(ngModel)]="hasRefferalCode">
+        <div class="row">
+          <input type="checkbox" [(ngModel)]="hasRefferalCode" />
+        </div>
+        <div class="row" *ngIf="hasRefferalCode">
+          <input type="text" placeholder="enter a referal code" />
+        </div>
+
+        <div class="row">
+          <div class="col-3">
+            <select class="form-select" [(ngModel)]="selectedIdentityProof">
+              <option value="aadhar">Aadhar card</option>
+              <option value="pan">Pan card</option>
+              <option value="driving">Driving License</option>
+            </select>
+          </div>
+          <div class="col-3">
+            <input type="text" *ngIf="selectedIdentityProof == 'pan'" placeholder="Enter Pan" />
+            <input
+              type="text"
+              *ngIf="selectedIdentityProof == 'aadhar'"
+              placeholder="Enter Aadhar"
+            />
+            <input
+              type="text"
+              *ngIf="selectedIdentityProof == 'driving'"
+              placeholder=""
+              Enter
+              Driving
+            />
+          </div>
+          <div class="row">
+            <div class="col-3">
+              @if (isDiv2Visible == 'yes') {
+                <div class="col-3">DIV 2</div>
+              } @else {
+                <p>Div is Not Visible</p>
+              }
+            </div>
+            <div class="col-3">
+              <input
+                type="text"
+                placeholder="Enter text"
+                [(ngModel)]="textInput"
+                (input)="onTextChange()"
+              />
+            </div>
+            <div class="col-3">
+              @if (isVowels) {
+                <p>Word Contains Vowels</p>
+              } @else {
+                <p>Word does Not Contains Vowels</p>
+              }
+            </div>
+          </div>
+
+          <div class="row">
+            <button class="btn btn-warning" (click)="toggleButton()">Toggle</button>
+          </div>
+          <div class="row">
+            <input
+              type="text"
+              maxlength="3"
+              placeholder="Please enter Day"
+              [(ngModel)]="startDayChar"
+            />
+          </div>
+          <div class="col-3">
+            @if (startDayChar == 'mon') {
+              <p>Monday</p>
+            } @else if (startDayChar == 'tue') {
+              <p>Tuesday</p>
+            } @else if (startDayChar == 'wed') {
+              <p>Wednesday</p>
+            } @else if (startDayChar == 'thu') {
+              <p>Thrusday</p>
+            } @else {
+              <p>Wrong Entry</p>
+            }
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="row" *ngIf="hasRefferalCode">
-        <input type="text" placeholder="enter a referal code">
+  } @else {
+    <div class="col-12">
+      ng for examples
+      <hr />
+      <hr />
+      <div class="row">
+        <div class="col-3">
+          <ul *ngFor="let city of studentList">
+            <li>
+              {{ city }}
+            </li>
+          </ul>
+        </div>
+        <div class="col-3">
+          <ul>
+            <li *ngFor="let city of studentList">
+              {{ city }}
+            </li>
+          </ul>
+        </div>
+        <div class="col-3">
+          <input type="text" *ngFor="let student of studentList" [value]="student" />
+        </div>
+
+        <div class="col-3">
+          <p class="text-warning" *ngFor="let stud of studentList">{{ stud }}</p>
+        </div>
+        <div class="col-3">
+          <div *ngFor="let stud of studentList">
+            <span>Student Name : </span>
+            <h1>{{ stud }}</h1>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-3">
+            <ol>
+              @for (item of studentList; track $index) {
+                <li>{{ item }}</li>
+              }
+            </ol>
+          </div>
+          <div class="col-3">
+            <dl>
+              @for (student of studentList; track $index) {
+                <dt>{{ student }}</dt>
+              }
+            </dl>
+          </div>
+
+          <div class="col-3">
+            @for (stud of studentList; track $index) {
+              <label for="">Name</label>
+              <textarea class="form-control" value="{{ stud }}"></textarea>
+            }
+          </div>
+          <div class="col-3">
+            <select>
+              @for (stud of studentList; track $index) {
+                <option>{{ stud }}</option>
+              }
+            </select>
+          </div>
+        </div>
+      </div>
     </div>
-    
+  }
 </div>
