@@ -1,0 +1,66 @@
+<p>attr-directive works!</p>
+<div class="row">
+  <div class="col-4 p-4" [ngClass]="divClass">Div 1</div>
+  <div class="col-4 p-4" [ngClass]="num1 == num2 ? 'bg-warning' : 'bg-secondary'">Div3</div>
+  <div class="col-4">
+    <h1 [ngClass]="isChecked ? 'text-success' : 'text-danger'">This is Sample text</h1>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-4">
+    <button class="btn btn-success" (click)="addDivClass('bg-success')">Green</button>
+    <button class="btn btn-danger" (click)="addDivClass('bg-danger')">Red</button>
+  </div>
+  <div class="col-4">
+    <input type="text" placeholder="Num 1" [(ngModel)]="num1" />
+    <input type="text" placeholder="Num 2" [(ngModel)]="num2" />
+  </div>
+  <div class="col-4">
+    <input type="checkbox" [(ngModel)]="isChecked" />
+  </div>
+</div>
+
+<hr />
+<div class="row">
+  <div class="col-6">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>City</th>
+          <th>Contact</th>
+          <th>Staus</th>
+          <th>Grade</th>
+        </tr>
+      </thead>
+      @for (item of playList; track $index) {
+        <tr>
+          <td>{{ item.name }}</td>
+          <td>{{ item.city }}</td>
+          <td>{{ item.contactNo }}</td>
+          <td [ngClass]="item.isActive ? 'bg-success text-warning' : 'bg-danger text-dark'">
+            {{ item.isActive ? 'Active' : 'De-Active' }}</td>
+          <td>{{ item.grade }}</td>
+        </tr>
+      }
+    </table>
+  </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-3">
+        <div class="p-3" [ngStyle]="{'background-color':textColor,color: textFontColor}">
+                Div3
+        </div>
+        
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-3">
+        <input type="text" [(ngModel)]="textColor" placeholder="Enter the Background Color">
+                <input type="text" [(ngModel)]="textFontColor" placeholder="Enter the Background Color">
+
+    </div>
+</div>
