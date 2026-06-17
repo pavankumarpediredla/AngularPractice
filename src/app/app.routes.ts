@@ -5,6 +5,7 @@ import { Settings } from './components/settings/settings';
 import { Directive } from '@angular/core';
 import { Directives } from './components/directives/directives';
 import { AttrDirective } from './components/attr-directive/attr-directive';
+import { PageNotFound } from './components/page-not-found/page-not-found';
 
 export const routes: Routes = [
     {
@@ -32,5 +33,9 @@ export const routes: Routes = [
     {
         path: 'attr-directive',
         component: AttrDirective
+    },{
+        path: '**',
+        component:PageNotFound,
+        title: 'page Not Found'
     }
 ];

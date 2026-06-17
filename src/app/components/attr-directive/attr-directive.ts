@@ -33,6 +33,8 @@ export class AttrDirective {
 
   textColor =''
   textFontColor = ''
+
+  
 addDivClass(classNmae:string){
     this.divClass = classNmae;
   }

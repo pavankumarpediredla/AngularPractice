@@ -1,12 +1,24 @@
-<p>attr-directive works!</p>
 <div class="row">
   <div class="col-4 p-4" [ngClass]="divClass">Div 1</div>
-  <div class="col-4 p-4" [ngClass]="num1 == num2 ? 'bg-warning' : 'bg-secondary'">Div3</div>
+  <div class="col-4 p-4" [ngClass]="num1 == num2 ? 'bg-warning' : 'bg-secondary'">
+    Div2
+</div>
   <div class="col-4">
     <h1 [ngClass]="isChecked ? 'text-success' : 'text-danger'">This is Sample text</h1>
   </div>
 </div>
-
+<hr>
+<div class="row">
+  <div [class]="'col-4 p-4 '+divClass">
+    Div 1 -property binding</div>
+  <div [class]="'col-4 p-4 ' + (num1 == num2 ? 'bg-warning' : 'bg-secondary')">
+    Div2
+</div>
+  <div class="col-4">
+    <h1 [ngClass]="isChecked ? 'text-success' : 'text-danger'">This is Sample text</h1>
+  </div>
+</div>
+<hr>
 <div class="row">
   <div class="col-4">
     <button class="btn btn-success" (click)="addDivClass('bg-success')">Green</button>
@@ -20,8 +32,7 @@
     <input type="checkbox" [(ngModel)]="isChecked" />
   </div>
 </div>
-
-<hr />
+<hr/>
 <div class="row">
   <div class="col-6">
     <table class="table table-bordered">
@@ -40,27 +51,24 @@
           <td>{{ item.city }}</td>
           <td>{{ item.contactNo }}</td>
           <td [ngClass]="item.isActive ? 'bg-success text-warning' : 'bg-danger text-dark'">
-            {{ item.isActive ? 'Active' : 'De-Active' }}</td>
+            {{ item.isActive ? 'Active' : 'De-Active' }}
+          </td>
           <td>{{ item.grade }}</td>
         </tr>
       }
     </table>
   </div>
 </div>
-<hr>
+<hr />
 <div class="row">
-    <div class="col-3">
-        <div class="p-3" [ngStyle]="{'background-color':textColor,color: textFontColor}">
-                Div3
-        </div>
-        
-    </div>
+  <div class="col-3">
+    <div class="p-3" [ngStyle]="{ 'background-color': textColor, color: textFontColor }">Div3</div>
+  </div>
 </div>
-<hr>
+<hr />
 <div class="row">
-    <div class="col-3">
-        <input type="text" [(ngModel)]="textColor" placeholder="Enter the Background Color">
-                <input type="text" [(ngModel)]="textFontColor" placeholder="Enter the Background Color">
-
-    </div>
+  <div class="col-3">
+    <input type="text" [(ngModel)]="textColor" placeholder="Enter the Background Color" />
+    <input type="text" [(ngModel)]="textFontColor" placeholder="Enter the Background Color" />
+  </div>
 </div>
