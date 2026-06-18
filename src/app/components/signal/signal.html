@@ -1,0 +1,31 @@
+
+<div class="row">
+    <div class="col-3">
+        {{studentName}}
+    </div>
+    <br>
+    <button (click)="changeNmae()">ChangeName</button>
+    <div class="col-3">
+        {{studentCity()}}
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-3">
+        Student City :
+    </div>
+    <div class="col-3">
+        {{studentCity()}}
+    </div>
+    <br>
+    <button (click)="changeCity()">Change City</button>
+    <hr>
+    <div class="col-3">
+        {{studenDetails().name}} ==> {{studenDetails().contactNo}}
+    </div>
+    <div class="col-3">
+        {{cityList()}}
+        <br>
+        {{cityList()[0]}}
+    </div>
+</div>

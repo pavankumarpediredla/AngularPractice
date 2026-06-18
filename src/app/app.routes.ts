@@ -6,6 +6,7 @@ import { Directive } from '@angular/core';
 import { Directives } from './components/directives/directives';
 import { AttrDirective } from './components/attr-directive/attr-directive';
 import { PageNotFound } from './components/page-not-found/page-not-found';
+import { Signal } from './components/signal/signal';
 
 export const routes: Routes = [
     {
@@ -33,7 +34,13 @@ export const routes: Routes = [
     {
         path: 'attr-directive',
         component: AttrDirective
-    },{
+    },
+    {
+        path: 'signal',
+        component: Signal,
+        title: 'signal'
+    }
+    ,{
         path: '**',
         component:PageNotFound,
         title: 'page Not Found'
